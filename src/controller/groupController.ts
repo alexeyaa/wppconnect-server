@@ -549,7 +549,7 @@ export async function approveGroupMembershipRequest(req: Request, res: Response)
       arrayGroups.push(group);
     }
 
-    return res.status(201).json({
+    res.status(201).json({
       status: 'success',
       response: {
         message: 'Group membership Request(s) approve successfully',
@@ -559,7 +559,7 @@ export async function approveGroupMembershipRequest(req: Request, res: Response)
     });
   } catch (e) {
     req.logger.error(e);
-    return res.status(500).json({
+    res.status(500).json({
       status: 'error',
       message: "Error approve membership request's",
       error: e,
@@ -610,7 +610,7 @@ export async function rejectGroupMembershipRequest(req: Request, res: Response) 
       arrayGroups.push(group);
     }
 
-    return res.status(201).json({
+    res.status(201).json({
       status: 'success',
       response: {
         message: 'Group membership Request(s) reject successfully',
@@ -620,7 +620,7 @@ export async function rejectGroupMembershipRequest(req: Request, res: Response) 
     });
   } catch (e) {
     req.logger.error(e);
-    return res.status(500).json({
+    res.status(500).json({
       status: 'error',
       message: "Error reject membership request's",
       error: e,
@@ -671,10 +671,10 @@ export async function getGroupMembershipRequests(req: Request, res: Response) {
       arrayGroups.push(response);
     }
 
-    return res.status(200).json({ status: 'success', response: arrayGroups });
+    res.status(200).json({ status: 'success', response: arrayGroups });
   } catch (e) {
     req.logger.error(e);
-    return res.status(500).json({
+    res.status(500).json({
       status: 'error',
       message: 'Error retrieving group membership requests(s)',
       error: e,
